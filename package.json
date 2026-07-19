@@ -1,11 +1,23 @@
 {
   "name": "homepage",
+  "description": "Personal homepage",
+  "homepage": "https://github.com/nkvtd/homepage#readme",
+  "bugs": {
+    "url": "https://github.com/nkvtd/homepage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkvtd/homepage.git"
+  },
+  "license": "MIT",
+  "author": "nkvtd",
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
     "preview": "vike build && vike preview",
-    "lint": "biome lint --write .",
-    "format": "biome format --write ."
+    "lint": "biome lint --write src/",
+    "lint:fix": "biome check --write src/",
+    "format": "biome format --write src/"
   },
   "dependencies": {
     "vike": "0.4.260",
