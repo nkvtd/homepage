@@ -29,11 +29,14 @@
       "!dist/*",
       "!node_modules/*",
       "!**/.DS_Store"
-    ]
+    ],
+    "ignoreUnknown": true
   },
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "formatter": {
-    "indentStyle": "space"
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 4
   },
   "linter": {
     "enabled": true,
@@ -47,8 +50,8 @@
         "useImportType": "off"
       },
       "correctness": {
-        "noUnusedVariables": "off",
-        "noUnusedImports": "off"
+        "noUnusedVariables": "info",
+        "noUnusedImports": "info"
       }
     }
   },
