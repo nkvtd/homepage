@@ -1,19 +1,122 @@
+/* biome-ignore-all lint/complexity/noImportantStyles: required for prefers-reduced-motion a11y overrides */
 @import "tailwindcss";
+@import "@fontsource/fira-code/latin-400.css";
+@import "@fontsource/fira-code/latin-500.css";
 
-@layer base {
-  h1 {
-    @apply mb-4 text-4xl font-bold tracking-tight text-gray-900;
-  }
-  ul {
-    @apply list-disc pl-6;
-  }
-  ol {
-    @apply list-decimal pl-6;
-  }
-  p {
-    @apply mb-2 mt-2;
-  }
-  a {
-    @apply text-blue-600 hover:text-pink-400 visited:text-blue-900;
-  }
+@theme {
+    --color-bg: #f0f0f0;
+    --color-bg-pure: #ffffff;
+    --color-text: #000000;
+    --color-text-invert: #ffffff;
+    --color-header-bg: #000000;
+    --color-accent: #8b008b;
+    --color-accent-navy: #0a0a2e;
+    --color-border: #000000;
+    --font-display: "Inter", system-ui, sans-serif;
+    --font-mono:
+        "Fira Code", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+}
+
+:root {
+    --bg: #f0f0f0;
+    --bg-pure: #ffffff;
+    --text: #000000;
+    --text-invert: #ffffff;
+    --header-bg: #000000;
+    --accent: #8b008b;
+    --accent-navy: #0a0a2e;
+    --border: #000000;
+    --grid-line: rgba(0, 0, 0, 0.055);
+    --shadow-brutal: 4px 4px 0px 0px #000000;
+    --shadow-brutal-hover: 6px 6px 0px 0px #8b008b;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #da70d6;
+    color: var(--text-invert);
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.grid-bg {
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+@keyframes bubble-wiggle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    15% {
+        transform: translate(-2px, -1px) rotate(-1deg);
+    }
+    30% {
+        transform: translate(2px, -2px) rotate(1deg);
+    }
+    45% {
+        transform: translate(-1px, 2px) rotate(-0.5deg);
+    }
+    60% {
+        transform: translate(1px, -1px) rotate(0.5deg);
+    }
+    75% {
+        transform: translate(-2px, -2px) rotate(-0.25deg);
+    }
+    100% {
+        transform: translate(-2px, -2px) rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
