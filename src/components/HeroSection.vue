@@ -15,7 +15,7 @@
         :country="personal.location.country"
       />
 
-      <div class="flex-1 flex flex-col px-6 md:px-12 lg:px-16 min-h-0">
+      <div class="flex-1 flex flex-col px-6 md:px-12 lg:px-16 min-h-0 max-w-[110rem] mx-auto w-full">
         <div class="pt-4 md:pt-6 pb-2 shrink-0">
           <HeroDisplay :display-name="personal.displayName" />
         </div>
