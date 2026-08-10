@@ -1,46 +1,45 @@
-Generated with [vike.dev/new](https://vike.dev/new) ([version 662](https://www.npmjs.com/package/create-vike/v/0.0.662)) using this command:
+# homepage
 
-```sh
-npm create vike@latest --- --vue --tailwindcss --biome
+[![Vike](https://img.shields.io/badge/vike-646CFF?logo=vike)](https://vike.dev)
+[![Vue](https://img.shields.io/badge/vue-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/node-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Docker](https://img.shields.io/badge/docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
+A personal homepage built with Vike, Vue 3, and Tailwind CSS. It renders server-side and ships as a single Docker image served by the built-in Vike server.
+
+## What's in the stack
+
+**Vike + Vue 3** — The app is a Vike SSR application with a single page: a hero section and a projects grid rendered as interactive bubbles.
+
+**Tailwind CSS** — Styles are authored directly in CSS with `@theme` tokens and custom properties.
+
+**Docker** — A multi-stage `node:26-alpine` image builds the app and installs only production dependencies. The container runs `node ./dist/server/index.mjs`.
+
+**GitHub Container Registry** — Every push to `main` builds and pushes `ghcr.io/nkvtd/homepage:latest` via GitHub Actions.
+
+## Quick Start
+
+### Run locally
+
+```bash
+git clone https://github.com/nkvtd/homepage.git && cd homepage
+npm install
+npm run dev     # development server
+npm run build   # production build
+node ./dist/server/index.mjs   # production server
 ```
 
-## Contents
+### Deploy with Docker Compose
 
-- [Vike](#vike)
-  - [Plus files](#plus-files)
-  - [Routing](#routing)
-  - [SSR](#ssr)
-  - [HTML Streaming](#html-streaming)
+```bash
+docker network create edge-proxy
+docker compose up -d
+```
 
-## Vike
+The service joins the `edge-proxy` network so a Cloudflared tunnel on the same network can route traffic to it. No host ports are exposed.
 
-This app is ready to start. It's powered by [Vike](https://vike.dev) and [Vue](https://vuejs.org/guide/quick-start.html).
+## License
 
-### Plus files
-
-[The + files are the interface](https://vike.dev/config) between Vike and your code.
-
-- [`+config.ts`](https://vike.dev/settings) — Settings (e.g. `<title>`)
-- [`+Page.vue`](https://vike.dev/Page) — The `<Page>` component
-- [`+data.ts`](https://vike.dev/data) — Fetching data (for your `<Page>` component)
-- [`+Layout.vue`](https://vike.dev/Layout) — The `<Layout>` component (wraps your `<Page>` components)
-- [`+Head.vue`](https://vike.dev/Head) - Sets `<head>` tags
-- [`/pages/_error/+Page.vue`](https://vike.dev/error-page) — The error page (rendered when an error occurs)
-- [`+onPageTransitionStart.ts`](https://vike.dev/onPageTransitionStart) and `+onPageTransitionEnd.ts` — For page transition animations
-
-### Routing
-
-[Vike's built-in router](https://vike.dev/routing) lets you choose between:
-
-- [Filesystem Routing](https://vike.dev/filesystem-routing) (the URL of a page is determined based on where its `+Page.vue` file is located on the filesystem)
-- [Route Strings](https://vike.dev/route-string)
-- [Route Functions](https://vike.dev/route-function)
-
-### SSR
-
-SSR is enabled by default. You can [disable it](https://vike.dev/ssr) for all or specific pages.
-
-### HTML Streaming
-
-You can [enable/disable HTML streaming](https://vike.dev/stream) for all or specific pages.
-
+This project is licensed under the MIT License.
