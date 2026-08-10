@@ -65,7 +65,11 @@ const portfolio: PortfolioData = {
                 url: "https://www.linkedin.com/in/tome-gjorgiev-988812274/",
                 icon: "LogoLinkedin",
             },
-            { name: "Steam", url: "#", icon: "LogoSteam" },
+            {
+                name: "Steam",
+                url: "https://steamcommunity.com/id/nvkvd",
+                icon: "LogoSteam",
+            },
         ],
     },
     technologies: [
